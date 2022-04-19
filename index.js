@@ -1,10 +1,10 @@
 const fs = require("fs");
 const util = require("util");
 const inquirer = require("inquirer");
-const Employee = require("./lib/Employee0.js");
-const Engineer = require("./lib/Engineer0");
-const Intern = require("./lib/Intern0");
-const Manager = require("./lib/Manager0");
+const Employee = require("./lib/Employee.js");
+const Engineer = require("./lib/Engineer");
+const Intern = require("./lib/Intern");
+const Manager = require("./lib/Manager");
 const rendered = require("./dist/rendered.js");
 
 const writeFileAsync = util.promisify(fs.writeFile);
@@ -85,7 +85,7 @@ async function prompt() {
                    teamArr.push(intern);
               } else if (resp.title === "Manager") {
                    resp2 = await inquirer.prompt([{
-                        
+
                         type: "input",
                         name: "i",
                         message: "What is the manager's office number?:",
