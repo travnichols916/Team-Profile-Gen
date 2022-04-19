@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "fs": "^0.0.1-security",
+    "inquire": "^0.4.8",
+    "jest": "^27.5.1",
+    "node": "^17.7.2"
+  }
+}
