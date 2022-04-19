@@ -1,3 +1,4 @@
+//Declare constants
 const fs = require("fs");
 const util = require("util");
 const inquirer = require("inquirer");
@@ -17,13 +18,10 @@ let teamstr = '';
 async function main() {
     try {
          await prompt()
-         // for x loop
-         for (let x = 0; x < teamArr.length; x++) {
-              teamstr = teamstr + rendered.generateCard(teamArr[x]);
-         }
-         let finalizedHTML = rendered.generateHTML(teamstr)
+         let finalizedHTML = rendered(teamArr)
          console.log(teamstr)
          //write file to dist folder
+         console.log(finalizedHTML)
          writeFileAsync("./dist/index.html", finalizedHTML)
     } catch (err) {
          return console.log(err);
