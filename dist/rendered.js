@@ -1,16 +1,16 @@
 function generateCard(newArray) {
     let cards = [];
     //role declared outside of for loop
-    role;
+    let role;
     for (let i = 0; i < newArray.length; i++) {
       // Use array team that we generate from input to make new array 
       const team = newArray[i];
       role = team.getRole();
-      if (role === "manager") {
+      if (role === "Manager") {
         cards.push(generateManagerCard(team));
-      } else if (role === "engineer") {
+      } else if (role === "Engineer") {
         cards.push(generateEngineerCard(team));
-      } else if (role === "intern") {
+      } else if (role === "Intern") {
         cards.push(generateInternCard(team));
       } else {
         console.log("Can't Generate Role Card");
@@ -24,12 +24,11 @@ function generateManagerCard(manager) {
         <div class="card m-1 shadow" style="max-width: 18rem">
           <div class='card-header bg-primary'>
             <h3 class="card-title text-light">${(manager.name)}</h3>
-            <h6 class="card-text text-light"><i class="fa fa-coffee"></i> ${manager.position}</h6>
           </div>
           <div class="card-body">
             <ul class="list-group list-group-flush">
-              <li class="list-group-item">ID: ${manager.employeeId}</li>
-              <li class="list-group-item">Position: ${manager.position}</li>
+              <li class="list-group-item">ID: ${manager.id}</li>
+              <li class="list-group-item">Position: ${manager.role}</li>
               <li class="list-group-item">Email: <a href="mailto: ${
                 manager.email
               }"> ${manager.email} </a></li>
@@ -47,17 +46,16 @@ function generateManagerCard(manager) {
       <div class="card m-1 shadow" style="width: 18rem">
         <div class='card-header bg-primary'>
           <h3 class="card-title text-light">${engineer.name}</h3>
-          <h6 class="card-text text-light"><i class="fa fa-laptop"></i> ${engineer.position}</h6>
         </div>
         <div class="card-body">
           <ul class="list-group list-group-flush">
-            <li class="list-group-item">ID: ${engineer.employeeId}</li>
-            <li class="list-group-item">Position: ${engineer.position}</li>
+            <li class="list-group-item">ID: ${engineer.id}</li>
+            <li class="list-group-item">Position: ${engineer.role}</li>
             <li class="list-group-item">Email: <a href="mailto: ${
               engineer.email
             }"> ${engineer.email} </a></li>
             <li class="list-group-item">GitHub: <a href=https://github.com/${
-              engineer.gitHub}> ${engineer.gitHub} </a></li>
+              engineer.github}> ${engineer.github} </a></li>
           </ul>
         </div>
       </div>
@@ -68,12 +66,11 @@ function generateManagerCard(manager) {
     return `<div class="card m-1 shadow" style="width: 16rem">
         <div class='card-header bg-primary'>
           <h3 class="card-title text-light">${intern.name}</h3>
-          <h5 class="card-text text-light"><i class="fa fa-graduation-cap"></i> ${intern.position}</h5>
         </div>
         <div class="card-body">
           <ul class="list-group list-group-flush">
-            <li class="list-group-item">ID: ${intern.employeeId}</li>
-            <li class="list-group-item">Position: ${intern.position}</li>
+            <li class="list-group-item">ID: ${intern.id}</li>
+            <li class="list-group-item">Position: ${intern.role}</li>
             <li class="list-group-item">Email: <a href="mailto: ${
               intern.email
             }"> ${intern.email} </a></li>
