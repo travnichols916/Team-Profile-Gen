@@ -1,13 +1,11 @@
 const fs = require("fs");
 const util = require("util");
 const inquirer = require("inquirer");
-const employee = require("./lib/employee.js");
-const engineer = require("./lib/engineer");
-const intern = require("./lib/intern");
-const manager = require("./lib/manager");
+const Employee = require("./lib/Employee0.js");
+const Engineer = require("./lib/Engineer0");
+const Intern = require("./lib/Intern0");
+const Manager = require("./lib/Manager0");
 const rendered = require("./dist/rendered.js");
-
-
 
 const writeFileAsync = util.promisify(fs.writeFile);
 const appendFileAsync = util.promisify(fs.appendFile);
@@ -42,58 +40,58 @@ async function prompt() {
                    {
                         type: "input",
                         name: "name",
-                        message: "What is the employee's name?: "
+                        message: "What is the Employee's name?: "
                    },
                    {
                         type: "input",
                         name: "id",
-                        message: "Input the employee's ID: "
+                        message: "Input the Employee's ID: "
                    },
                    {
                         type: "input",
                         name: "email",
-                        message: "Input the employee's email address: "
+                        message: "Input the Employee's email address: "
                    },
                    {
                         type: "list",
                         name: "title",
-                        message: "What is the employee's title:",
+                        message: "What is the Employee's title:",
                         choices: [
                              "engineer",
-                             "intern",
-                             "manager"
+                             "Intern",
+                             "Manager"
                         ]
                    }
               ]);
-
               let resp2 = ""
               // if else statement and use inquire prompt to input engineers username
               if (resp.title === "engineer") {
                    resp2 = await inquirer.prompt([{
                         type: "input",
                         name: "i",
-                        message: "What is the employee's github username?:",
+                        message: "What is the Employee's github username?:",
                    }, ]);
                    //store info and push
-                   const engineer = new engineer(resp.name, resp.id, resp.email, resp2.i);
+                   const engineer = new Engineer(resp.name, resp.id, resp.email, resp2.i);
                    teamArr.push(engineer);
-              } else if (resp.title === "intern") {
+              } else if (resp.title === "Intern") {
                    resp2 = await inquirer.prompt([{
                         type: "input",
                         name: "i",
-                        message: "What school is the intern attending?:",
+                        message: "What school is the Intern attending?:",
                    }, ]);
                    //store info and push
-                   const intern = new intern(resp.name, resp.id, resp.email, resp2.i);
+                   const intern = new Intern(resp.name, resp.id, resp.email, resp2.i);
                    teamArr.push(intern);
-              } else if (resp.title === "manager") {
+              } else if (resp.title === "Manager") {
                    resp2 = await inquirer.prompt([{
+                        
                         type: "input",
                         name: "i",
                         message: "What is the manager's office number?:",
                    }, ]);
                    //store the object and push
-                   const manager = new manager(resp.name, resp.id, resp.email, resp2.i);
+                   const manager = new Manager(resp.name, resp.id, resp.email, resp2.i);
                    teamArr.push(manager);
               }
          } catch (err) {

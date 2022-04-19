@@ -16,7 +16,6 @@ function generateCard(newArray) {
         console.log("Can't Generate Role Card");
       }
     }
-  
     return cards.join(``);
   }
 
@@ -58,8 +57,7 @@ function generateManagerCard(manager) {
               engineer.email
             }"> ${engineer.email} </a></li>
             <li class="list-group-item">GitHub: <a href=https://github.com/${
-              engineer.gitHub
-            }> ${engineer.gitHub} </a></li>
+              engineer.gitHub}> ${engineer.gitHub} </a></li>
           </ul>
         </div>
       </div>
@@ -67,11 +65,10 @@ function generateManagerCard(manager) {
   }
   
   function generateInternCard(intern) {
-    return `
-      <div class="card m-1 shadow" style="width: 16rem">
+    return `<div class="card m-1 shadow" style="width: 16rem">
         <div class='card-header bg-primary'>
           <h3 class="card-title text-light">${intern.name}</h3>
-          <h6 class="card-text text-light"><i class="fa fa-graduation-cap"></i> ${intern.position}</h6>
+          <h5 class="card-text text-light"><i class="fa fa-graduation-cap"></i> ${intern.position}</h5>
         </div>
         <div class="card-body">
           <ul class="list-group list-group-flush">
@@ -115,4 +112,4 @@ function generateManagerCard(manager) {
           </html>
       `;
   }
-Module.exports = rendered;
+module.exports = rendered;
